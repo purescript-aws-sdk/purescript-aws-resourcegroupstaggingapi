@@ -90,7 +90,7 @@ Encode FailedResourcesMap
 
 ``` purescript
 newtype FailureInfo
-  = FailureInfo { "StatusCode" :: NullOrUndefined (StatusCode), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }
+  = FailureInfo { "StatusCode" :: Maybe (StatusCode), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }
 ```
 
 <p>Details of the common errors that all actions return.</p>
@@ -115,7 +115,7 @@ Constructs FailureInfo from required parameters
 #### `newFailureInfo'`
 
 ``` purescript
-newFailureInfo' :: ({ "StatusCode" :: NullOrUndefined (StatusCode), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> { "StatusCode" :: NullOrUndefined (StatusCode), "ErrorCode" :: NullOrUndefined (ErrorCode), "ErrorMessage" :: NullOrUndefined (ErrorMessage) }) -> FailureInfo
+newFailureInfo' :: ({ "StatusCode" :: Maybe (StatusCode), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) } -> { "StatusCode" :: Maybe (StatusCode), "ErrorCode" :: Maybe (ErrorCode), "ErrorMessage" :: Maybe (ErrorMessage) }) -> FailureInfo
 ```
 
 Constructs FailureInfo's fields from required parameters
@@ -124,7 +124,7 @@ Constructs FailureInfo's fields from required parameters
 
 ``` purescript
 newtype GetResourcesInput
-  = GetResourcesInput { "PaginationToken" :: NullOrUndefined (PaginationToken), "TagFilters" :: NullOrUndefined (TagFilterList), "ResourcesPerPage" :: NullOrUndefined (ResourcesPerPage), "TagsPerPage" :: NullOrUndefined (TagsPerPage), "ResourceTypeFilters" :: NullOrUndefined (ResourceTypeFilterList) }
+  = GetResourcesInput { "PaginationToken" :: Maybe (PaginationToken), "TagFilters" :: Maybe (TagFilterList), "ResourcesPerPage" :: Maybe (ResourcesPerPage), "TagsPerPage" :: Maybe (TagsPerPage), "ResourceTypeFilters" :: Maybe (ResourceTypeFilterList) }
 ```
 
 ##### Instances
@@ -147,7 +147,7 @@ Constructs GetResourcesInput from required parameters
 #### `newGetResourcesInput'`
 
 ``` purescript
-newGetResourcesInput' :: ({ "PaginationToken" :: NullOrUndefined (PaginationToken), "TagFilters" :: NullOrUndefined (TagFilterList), "ResourcesPerPage" :: NullOrUndefined (ResourcesPerPage), "TagsPerPage" :: NullOrUndefined (TagsPerPage), "ResourceTypeFilters" :: NullOrUndefined (ResourceTypeFilterList) } -> { "PaginationToken" :: NullOrUndefined (PaginationToken), "TagFilters" :: NullOrUndefined (TagFilterList), "ResourcesPerPage" :: NullOrUndefined (ResourcesPerPage), "TagsPerPage" :: NullOrUndefined (TagsPerPage), "ResourceTypeFilters" :: NullOrUndefined (ResourceTypeFilterList) }) -> GetResourcesInput
+newGetResourcesInput' :: ({ "PaginationToken" :: Maybe (PaginationToken), "TagFilters" :: Maybe (TagFilterList), "ResourcesPerPage" :: Maybe (ResourcesPerPage), "TagsPerPage" :: Maybe (TagsPerPage), "ResourceTypeFilters" :: Maybe (ResourceTypeFilterList) } -> { "PaginationToken" :: Maybe (PaginationToken), "TagFilters" :: Maybe (TagFilterList), "ResourcesPerPage" :: Maybe (ResourcesPerPage), "TagsPerPage" :: Maybe (TagsPerPage), "ResourceTypeFilters" :: Maybe (ResourceTypeFilterList) }) -> GetResourcesInput
 ```
 
 Constructs GetResourcesInput's fields from required parameters
@@ -156,7 +156,7 @@ Constructs GetResourcesInput's fields from required parameters
 
 ``` purescript
 newtype GetResourcesOutput
-  = GetResourcesOutput { "PaginationToken" :: NullOrUndefined (PaginationToken), "ResourceTagMappingList" :: NullOrUndefined (ResourceTagMappingList) }
+  = GetResourcesOutput { "PaginationToken" :: Maybe (PaginationToken), "ResourceTagMappingList" :: Maybe (ResourceTagMappingList) }
 ```
 
 ##### Instances
@@ -179,7 +179,7 @@ Constructs GetResourcesOutput from required parameters
 #### `newGetResourcesOutput'`
 
 ``` purescript
-newGetResourcesOutput' :: ({ "PaginationToken" :: NullOrUndefined (PaginationToken), "ResourceTagMappingList" :: NullOrUndefined (ResourceTagMappingList) } -> { "PaginationToken" :: NullOrUndefined (PaginationToken), "ResourceTagMappingList" :: NullOrUndefined (ResourceTagMappingList) }) -> GetResourcesOutput
+newGetResourcesOutput' :: ({ "PaginationToken" :: Maybe (PaginationToken), "ResourceTagMappingList" :: Maybe (ResourceTagMappingList) } -> { "PaginationToken" :: Maybe (PaginationToken), "ResourceTagMappingList" :: Maybe (ResourceTagMappingList) }) -> GetResourcesOutput
 ```
 
 Constructs GetResourcesOutput's fields from required parameters
@@ -188,7 +188,7 @@ Constructs GetResourcesOutput's fields from required parameters
 
 ``` purescript
 newtype GetTagKeysInput
-  = GetTagKeysInput { "PaginationToken" :: NullOrUndefined (PaginationToken) }
+  = GetTagKeysInput { "PaginationToken" :: Maybe (PaginationToken) }
 ```
 
 ##### Instances
@@ -211,7 +211,7 @@ Constructs GetTagKeysInput from required parameters
 #### `newGetTagKeysInput'`
 
 ``` purescript
-newGetTagKeysInput' :: ({ "PaginationToken" :: NullOrUndefined (PaginationToken) } -> { "PaginationToken" :: NullOrUndefined (PaginationToken) }) -> GetTagKeysInput
+newGetTagKeysInput' :: ({ "PaginationToken" :: Maybe (PaginationToken) } -> { "PaginationToken" :: Maybe (PaginationToken) }) -> GetTagKeysInput
 ```
 
 Constructs GetTagKeysInput's fields from required parameters
@@ -220,7 +220,7 @@ Constructs GetTagKeysInput's fields from required parameters
 
 ``` purescript
 newtype GetTagKeysOutput
-  = GetTagKeysOutput { "PaginationToken" :: NullOrUndefined (PaginationToken), "TagKeys" :: NullOrUndefined (TagKeyList) }
+  = GetTagKeysOutput { "PaginationToken" :: Maybe (PaginationToken), "TagKeys" :: Maybe (TagKeyList) }
 ```
 
 ##### Instances
@@ -243,7 +243,7 @@ Constructs GetTagKeysOutput from required parameters
 #### `newGetTagKeysOutput'`
 
 ``` purescript
-newGetTagKeysOutput' :: ({ "PaginationToken" :: NullOrUndefined (PaginationToken), "TagKeys" :: NullOrUndefined (TagKeyList) } -> { "PaginationToken" :: NullOrUndefined (PaginationToken), "TagKeys" :: NullOrUndefined (TagKeyList) }) -> GetTagKeysOutput
+newGetTagKeysOutput' :: ({ "PaginationToken" :: Maybe (PaginationToken), "TagKeys" :: Maybe (TagKeyList) } -> { "PaginationToken" :: Maybe (PaginationToken), "TagKeys" :: Maybe (TagKeyList) }) -> GetTagKeysOutput
 ```
 
 Constructs GetTagKeysOutput's fields from required parameters
@@ -252,7 +252,7 @@ Constructs GetTagKeysOutput's fields from required parameters
 
 ``` purescript
 newtype GetTagValuesInput
-  = GetTagValuesInput { "PaginationToken" :: NullOrUndefined (PaginationToken), "Key" :: TagKey }
+  = GetTagValuesInput { "PaginationToken" :: Maybe (PaginationToken), "Key" :: TagKey }
 ```
 
 ##### Instances
@@ -275,7 +275,7 @@ Constructs GetTagValuesInput from required parameters
 #### `newGetTagValuesInput'`
 
 ``` purescript
-newGetTagValuesInput' :: TagKey -> ({ "PaginationToken" :: NullOrUndefined (PaginationToken), "Key" :: TagKey } -> { "PaginationToken" :: NullOrUndefined (PaginationToken), "Key" :: TagKey }) -> GetTagValuesInput
+newGetTagValuesInput' :: TagKey -> ({ "PaginationToken" :: Maybe (PaginationToken), "Key" :: TagKey } -> { "PaginationToken" :: Maybe (PaginationToken), "Key" :: TagKey }) -> GetTagValuesInput
 ```
 
 Constructs GetTagValuesInput's fields from required parameters
@@ -284,7 +284,7 @@ Constructs GetTagValuesInput's fields from required parameters
 
 ``` purescript
 newtype GetTagValuesOutput
-  = GetTagValuesOutput { "PaginationToken" :: NullOrUndefined (PaginationToken), "TagValues" :: NullOrUndefined (TagValuesOutputList) }
+  = GetTagValuesOutput { "PaginationToken" :: Maybe (PaginationToken), "TagValues" :: Maybe (TagValuesOutputList) }
 ```
 
 ##### Instances
@@ -307,7 +307,7 @@ Constructs GetTagValuesOutput from required parameters
 #### `newGetTagValuesOutput'`
 
 ``` purescript
-newGetTagValuesOutput' :: ({ "PaginationToken" :: NullOrUndefined (PaginationToken), "TagValues" :: NullOrUndefined (TagValuesOutputList) } -> { "PaginationToken" :: NullOrUndefined (PaginationToken), "TagValues" :: NullOrUndefined (TagValuesOutputList) }) -> GetTagValuesOutput
+newGetTagValuesOutput' :: ({ "PaginationToken" :: Maybe (PaginationToken), "TagValues" :: Maybe (TagValuesOutputList) } -> { "PaginationToken" :: Maybe (PaginationToken), "TagValues" :: Maybe (TagValuesOutputList) }) -> GetTagValuesOutput
 ```
 
 Constructs GetTagValuesOutput's fields from required parameters
@@ -316,7 +316,7 @@ Constructs GetTagValuesOutput's fields from required parameters
 
 ``` purescript
 newtype InternalServiceException
-  = InternalServiceException { "Message" :: NullOrUndefined (ExceptionMessage) }
+  = InternalServiceException { "Message" :: Maybe (ExceptionMessage) }
 ```
 
 <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
@@ -341,7 +341,7 @@ Constructs InternalServiceException from required parameters
 #### `newInternalServiceException'`
 
 ``` purescript
-newInternalServiceException' :: ({ "Message" :: NullOrUndefined (ExceptionMessage) } -> { "Message" :: NullOrUndefined (ExceptionMessage) }) -> InternalServiceException
+newInternalServiceException' :: ({ "Message" :: Maybe (ExceptionMessage) } -> { "Message" :: Maybe (ExceptionMessage) }) -> InternalServiceException
 ```
 
 Constructs InternalServiceException's fields from required parameters
@@ -350,7 +350,7 @@ Constructs InternalServiceException's fields from required parameters
 
 ``` purescript
 newtype InvalidParameterException
-  = InvalidParameterException { "Message" :: NullOrUndefined (ExceptionMessage) }
+  = InvalidParameterException { "Message" :: Maybe (ExceptionMessage) }
 ```
 
 <p>A parameter is missing or a malformed string or invalid or out-of-range value was supplied for the request parameter.</p>
@@ -375,7 +375,7 @@ Constructs InvalidParameterException from required parameters
 #### `newInvalidParameterException'`
 
 ``` purescript
-newInvalidParameterException' :: ({ "Message" :: NullOrUndefined (ExceptionMessage) } -> { "Message" :: NullOrUndefined (ExceptionMessage) }) -> InvalidParameterException
+newInvalidParameterException' :: ({ "Message" :: Maybe (ExceptionMessage) } -> { "Message" :: Maybe (ExceptionMessage) }) -> InvalidParameterException
 ```
 
 Constructs InvalidParameterException's fields from required parameters
@@ -400,7 +400,7 @@ Encode PaginationToken
 
 ``` purescript
 newtype PaginationTokenExpiredException
-  = PaginationTokenExpiredException { "Message" :: NullOrUndefined (ExceptionMessage) }
+  = PaginationTokenExpiredException { "Message" :: Maybe (ExceptionMessage) }
 ```
 
 <p>A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was denied because the specified <code>PaginationToken</code> has expired.</p>
@@ -425,7 +425,7 @@ Constructs PaginationTokenExpiredException from required parameters
 #### `newPaginationTokenExpiredException'`
 
 ``` purescript
-newPaginationTokenExpiredException' :: ({ "Message" :: NullOrUndefined (ExceptionMessage) } -> { "Message" :: NullOrUndefined (ExceptionMessage) }) -> PaginationTokenExpiredException
+newPaginationTokenExpiredException' :: ({ "Message" :: Maybe (ExceptionMessage) } -> { "Message" :: Maybe (ExceptionMessage) }) -> PaginationTokenExpiredException
 ```
 
 Constructs PaginationTokenExpiredException's fields from required parameters
@@ -466,7 +466,7 @@ Encode ResourceARNList
 
 ``` purescript
 newtype ResourceTagMapping
-  = ResourceTagMapping { "ResourceARN" :: NullOrUndefined (ResourceARN), "Tags" :: NullOrUndefined (TagList) }
+  = ResourceTagMapping { "ResourceARN" :: Maybe (ResourceARN), "Tags" :: Maybe (TagList) }
 ```
 
 <p>A list of resource ARNs and the tags (keys and values) that are associated with each.</p>
@@ -491,7 +491,7 @@ Constructs ResourceTagMapping from required parameters
 #### `newResourceTagMapping'`
 
 ``` purescript
-newResourceTagMapping' :: ({ "ResourceARN" :: NullOrUndefined (ResourceARN), "Tags" :: NullOrUndefined (TagList) } -> { "ResourceARN" :: NullOrUndefined (ResourceARN), "Tags" :: NullOrUndefined (TagList) }) -> ResourceTagMapping
+newResourceTagMapping' :: ({ "ResourceARN" :: Maybe (ResourceARN), "Tags" :: Maybe (TagList) } -> { "ResourceARN" :: Maybe (ResourceARN), "Tags" :: Maybe (TagList) }) -> ResourceTagMapping
 ```
 
 Constructs ResourceTagMapping's fields from required parameters
@@ -598,7 +598,7 @@ Constructs Tag's fields from required parameters
 
 ``` purescript
 newtype TagFilter
-  = TagFilter { "Key" :: NullOrUndefined (TagKey), "Values" :: NullOrUndefined (TagValueList) }
+  = TagFilter { "Key" :: Maybe (TagKey), "Values" :: Maybe (TagValueList) }
 ```
 
 <p>A list of tags (keys and values) that are used to specify the associated resources.</p>
@@ -623,7 +623,7 @@ Constructs TagFilter from required parameters
 #### `newTagFilter'`
 
 ``` purescript
-newTagFilter' :: ({ "Key" :: NullOrUndefined (TagKey), "Values" :: NullOrUndefined (TagValueList) } -> { "Key" :: NullOrUndefined (TagKey), "Values" :: NullOrUndefined (TagValueList) }) -> TagFilter
+newTagFilter' :: ({ "Key" :: Maybe (TagKey), "Values" :: Maybe (TagValueList) } -> { "Key" :: Maybe (TagKey), "Values" :: Maybe (TagValueList) }) -> TagFilter
 ```
 
 Constructs TagFilter's fields from required parameters
@@ -760,7 +760,7 @@ Constructs TagResourcesInput's fields from required parameters
 
 ``` purescript
 newtype TagResourcesOutput
-  = TagResourcesOutput { "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) }
+  = TagResourcesOutput { "FailedResourcesMap" :: Maybe (FailedResourcesMap) }
 ```
 
 ##### Instances
@@ -783,7 +783,7 @@ Constructs TagResourcesOutput from required parameters
 #### `newTagResourcesOutput'`
 
 ``` purescript
-newTagResourcesOutput' :: ({ "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) } -> { "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) }) -> TagResourcesOutput
+newTagResourcesOutput' :: ({ "FailedResourcesMap" :: Maybe (FailedResourcesMap) } -> { "FailedResourcesMap" :: Maybe (FailedResourcesMap) }) -> TagResourcesOutput
 ```
 
 Constructs TagResourcesOutput's fields from required parameters
@@ -856,7 +856,7 @@ Encode TagsPerPage
 
 ``` purescript
 newtype ThrottledException
-  = ThrottledException { "Message" :: NullOrUndefined (ExceptionMessage) }
+  = ThrottledException { "Message" :: Maybe (ExceptionMessage) }
 ```
 
 <p>The request was denied to limit the frequency of submitted requests.</p>
@@ -881,7 +881,7 @@ Constructs ThrottledException from required parameters
 #### `newThrottledException'`
 
 ``` purescript
-newThrottledException' :: ({ "Message" :: NullOrUndefined (ExceptionMessage) } -> { "Message" :: NullOrUndefined (ExceptionMessage) }) -> ThrottledException
+newThrottledException' :: ({ "Message" :: Maybe (ExceptionMessage) } -> { "Message" :: Maybe (ExceptionMessage) }) -> ThrottledException
 ```
 
 Constructs ThrottledException's fields from required parameters
@@ -922,7 +922,7 @@ Constructs UntagResourcesInput's fields from required parameters
 
 ``` purescript
 newtype UntagResourcesOutput
-  = UntagResourcesOutput { "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) }
+  = UntagResourcesOutput { "FailedResourcesMap" :: Maybe (FailedResourcesMap) }
 ```
 
 ##### Instances
@@ -945,7 +945,7 @@ Constructs UntagResourcesOutput from required parameters
 #### `newUntagResourcesOutput'`
 
 ``` purescript
-newUntagResourcesOutput' :: ({ "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) } -> { "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) }) -> UntagResourcesOutput
+newUntagResourcesOutput' :: ({ "FailedResourcesMap" :: Maybe (FailedResourcesMap) } -> { "FailedResourcesMap" :: Maybe (FailedResourcesMap) }) -> UntagResourcesOutput
 ```
 
 Constructs UntagResourcesOutput's fields from required parameters

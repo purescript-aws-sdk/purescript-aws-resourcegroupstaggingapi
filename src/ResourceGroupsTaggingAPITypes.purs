@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -65,9 +64,9 @@ instance encodeFailedResourcesMap :: Encode FailedResourcesMap where encode = ge
 
 -- | <p>Details of the common errors that all actions return.</p>
 newtype FailureInfo = FailureInfo 
-  { "StatusCode" :: NullOrUndefined (StatusCode)
-  , "ErrorCode" :: NullOrUndefined (ErrorCode)
-  , "ErrorMessage" :: NullOrUndefined (ErrorMessage)
+  { "StatusCode" :: Maybe (StatusCode)
+  , "ErrorCode" :: Maybe (ErrorCode)
+  , "ErrorMessage" :: Maybe (ErrorMessage)
   }
 derive instance newtypeFailureInfo :: Newtype FailureInfo _
 derive instance repGenericFailureInfo :: Generic FailureInfo _
@@ -77,21 +76,21 @@ instance encodeFailureInfo :: Encode FailureInfo where encode = genericEncode op
 
 -- | Constructs FailureInfo from required parameters
 newFailureInfo :: FailureInfo
-newFailureInfo  = FailureInfo { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "StatusCode": (NullOrUndefined Nothing) }
+newFailureInfo  = FailureInfo { "ErrorCode": Nothing, "ErrorMessage": Nothing, "StatusCode": Nothing }
 
 -- | Constructs FailureInfo's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newFailureInfo' :: ( { "StatusCode" :: NullOrUndefined (StatusCode) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } -> {"StatusCode" :: NullOrUndefined (StatusCode) , "ErrorCode" :: NullOrUndefined (ErrorCode) , "ErrorMessage" :: NullOrUndefined (ErrorMessage) } ) -> FailureInfo
-newFailureInfo'  customize = (FailureInfo <<< customize) { "ErrorCode": (NullOrUndefined Nothing), "ErrorMessage": (NullOrUndefined Nothing), "StatusCode": (NullOrUndefined Nothing) }
+newFailureInfo' :: ( { "StatusCode" :: Maybe (StatusCode) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } -> {"StatusCode" :: Maybe (StatusCode) , "ErrorCode" :: Maybe (ErrorCode) , "ErrorMessage" :: Maybe (ErrorMessage) } ) -> FailureInfo
+newFailureInfo'  customize = (FailureInfo <<< customize) { "ErrorCode": Nothing, "ErrorMessage": Nothing, "StatusCode": Nothing }
 
 
 
 newtype GetResourcesInput = GetResourcesInput 
-  { "PaginationToken" :: NullOrUndefined (PaginationToken)
-  , "TagFilters" :: NullOrUndefined (TagFilterList)
-  , "ResourcesPerPage" :: NullOrUndefined (ResourcesPerPage)
-  , "TagsPerPage" :: NullOrUndefined (TagsPerPage)
-  , "ResourceTypeFilters" :: NullOrUndefined (ResourceTypeFilterList)
+  { "PaginationToken" :: Maybe (PaginationToken)
+  , "TagFilters" :: Maybe (TagFilterList)
+  , "ResourcesPerPage" :: Maybe (ResourcesPerPage)
+  , "TagsPerPage" :: Maybe (TagsPerPage)
+  , "ResourceTypeFilters" :: Maybe (ResourceTypeFilterList)
   }
 derive instance newtypeGetResourcesInput :: Newtype GetResourcesInput _
 derive instance repGenericGetResourcesInput :: Generic GetResourcesInput _
@@ -101,18 +100,18 @@ instance encodeGetResourcesInput :: Encode GetResourcesInput where encode = gene
 
 -- | Constructs GetResourcesInput from required parameters
 newGetResourcesInput :: GetResourcesInput
-newGetResourcesInput  = GetResourcesInput { "PaginationToken": (NullOrUndefined Nothing), "ResourceTypeFilters": (NullOrUndefined Nothing), "ResourcesPerPage": (NullOrUndefined Nothing), "TagFilters": (NullOrUndefined Nothing), "TagsPerPage": (NullOrUndefined Nothing) }
+newGetResourcesInput  = GetResourcesInput { "PaginationToken": Nothing, "ResourceTypeFilters": Nothing, "ResourcesPerPage": Nothing, "TagFilters": Nothing, "TagsPerPage": Nothing }
 
 -- | Constructs GetResourcesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetResourcesInput' :: ( { "PaginationToken" :: NullOrUndefined (PaginationToken) , "TagFilters" :: NullOrUndefined (TagFilterList) , "ResourcesPerPage" :: NullOrUndefined (ResourcesPerPage) , "TagsPerPage" :: NullOrUndefined (TagsPerPage) , "ResourceTypeFilters" :: NullOrUndefined (ResourceTypeFilterList) } -> {"PaginationToken" :: NullOrUndefined (PaginationToken) , "TagFilters" :: NullOrUndefined (TagFilterList) , "ResourcesPerPage" :: NullOrUndefined (ResourcesPerPage) , "TagsPerPage" :: NullOrUndefined (TagsPerPage) , "ResourceTypeFilters" :: NullOrUndefined (ResourceTypeFilterList) } ) -> GetResourcesInput
-newGetResourcesInput'  customize = (GetResourcesInput <<< customize) { "PaginationToken": (NullOrUndefined Nothing), "ResourceTypeFilters": (NullOrUndefined Nothing), "ResourcesPerPage": (NullOrUndefined Nothing), "TagFilters": (NullOrUndefined Nothing), "TagsPerPage": (NullOrUndefined Nothing) }
+newGetResourcesInput' :: ( { "PaginationToken" :: Maybe (PaginationToken) , "TagFilters" :: Maybe (TagFilterList) , "ResourcesPerPage" :: Maybe (ResourcesPerPage) , "TagsPerPage" :: Maybe (TagsPerPage) , "ResourceTypeFilters" :: Maybe (ResourceTypeFilterList) } -> {"PaginationToken" :: Maybe (PaginationToken) , "TagFilters" :: Maybe (TagFilterList) , "ResourcesPerPage" :: Maybe (ResourcesPerPage) , "TagsPerPage" :: Maybe (TagsPerPage) , "ResourceTypeFilters" :: Maybe (ResourceTypeFilterList) } ) -> GetResourcesInput
+newGetResourcesInput'  customize = (GetResourcesInput <<< customize) { "PaginationToken": Nothing, "ResourceTypeFilters": Nothing, "ResourcesPerPage": Nothing, "TagFilters": Nothing, "TagsPerPage": Nothing }
 
 
 
 newtype GetResourcesOutput = GetResourcesOutput 
-  { "PaginationToken" :: NullOrUndefined (PaginationToken)
-  , "ResourceTagMappingList" :: NullOrUndefined (ResourceTagMappingList)
+  { "PaginationToken" :: Maybe (PaginationToken)
+  , "ResourceTagMappingList" :: Maybe (ResourceTagMappingList)
   }
 derive instance newtypeGetResourcesOutput :: Newtype GetResourcesOutput _
 derive instance repGenericGetResourcesOutput :: Generic GetResourcesOutput _
@@ -122,17 +121,17 @@ instance encodeGetResourcesOutput :: Encode GetResourcesOutput where encode = ge
 
 -- | Constructs GetResourcesOutput from required parameters
 newGetResourcesOutput :: GetResourcesOutput
-newGetResourcesOutput  = GetResourcesOutput { "PaginationToken": (NullOrUndefined Nothing), "ResourceTagMappingList": (NullOrUndefined Nothing) }
+newGetResourcesOutput  = GetResourcesOutput { "PaginationToken": Nothing, "ResourceTagMappingList": Nothing }
 
 -- | Constructs GetResourcesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetResourcesOutput' :: ( { "PaginationToken" :: NullOrUndefined (PaginationToken) , "ResourceTagMappingList" :: NullOrUndefined (ResourceTagMappingList) } -> {"PaginationToken" :: NullOrUndefined (PaginationToken) , "ResourceTagMappingList" :: NullOrUndefined (ResourceTagMappingList) } ) -> GetResourcesOutput
-newGetResourcesOutput'  customize = (GetResourcesOutput <<< customize) { "PaginationToken": (NullOrUndefined Nothing), "ResourceTagMappingList": (NullOrUndefined Nothing) }
+newGetResourcesOutput' :: ( { "PaginationToken" :: Maybe (PaginationToken) , "ResourceTagMappingList" :: Maybe (ResourceTagMappingList) } -> {"PaginationToken" :: Maybe (PaginationToken) , "ResourceTagMappingList" :: Maybe (ResourceTagMappingList) } ) -> GetResourcesOutput
+newGetResourcesOutput'  customize = (GetResourcesOutput <<< customize) { "PaginationToken": Nothing, "ResourceTagMappingList": Nothing }
 
 
 
 newtype GetTagKeysInput = GetTagKeysInput 
-  { "PaginationToken" :: NullOrUndefined (PaginationToken)
+  { "PaginationToken" :: Maybe (PaginationToken)
   }
 derive instance newtypeGetTagKeysInput :: Newtype GetTagKeysInput _
 derive instance repGenericGetTagKeysInput :: Generic GetTagKeysInput _
@@ -142,18 +141,18 @@ instance encodeGetTagKeysInput :: Encode GetTagKeysInput where encode = genericE
 
 -- | Constructs GetTagKeysInput from required parameters
 newGetTagKeysInput :: GetTagKeysInput
-newGetTagKeysInput  = GetTagKeysInput { "PaginationToken": (NullOrUndefined Nothing) }
+newGetTagKeysInput  = GetTagKeysInput { "PaginationToken": Nothing }
 
 -- | Constructs GetTagKeysInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTagKeysInput' :: ( { "PaginationToken" :: NullOrUndefined (PaginationToken) } -> {"PaginationToken" :: NullOrUndefined (PaginationToken) } ) -> GetTagKeysInput
-newGetTagKeysInput'  customize = (GetTagKeysInput <<< customize) { "PaginationToken": (NullOrUndefined Nothing) }
+newGetTagKeysInput' :: ( { "PaginationToken" :: Maybe (PaginationToken) } -> {"PaginationToken" :: Maybe (PaginationToken) } ) -> GetTagKeysInput
+newGetTagKeysInput'  customize = (GetTagKeysInput <<< customize) { "PaginationToken": Nothing }
 
 
 
 newtype GetTagKeysOutput = GetTagKeysOutput 
-  { "PaginationToken" :: NullOrUndefined (PaginationToken)
-  , "TagKeys" :: NullOrUndefined (TagKeyList)
+  { "PaginationToken" :: Maybe (PaginationToken)
+  , "TagKeys" :: Maybe (TagKeyList)
   }
 derive instance newtypeGetTagKeysOutput :: Newtype GetTagKeysOutput _
 derive instance repGenericGetTagKeysOutput :: Generic GetTagKeysOutput _
@@ -163,17 +162,17 @@ instance encodeGetTagKeysOutput :: Encode GetTagKeysOutput where encode = generi
 
 -- | Constructs GetTagKeysOutput from required parameters
 newGetTagKeysOutput :: GetTagKeysOutput
-newGetTagKeysOutput  = GetTagKeysOutput { "PaginationToken": (NullOrUndefined Nothing), "TagKeys": (NullOrUndefined Nothing) }
+newGetTagKeysOutput  = GetTagKeysOutput { "PaginationToken": Nothing, "TagKeys": Nothing }
 
 -- | Constructs GetTagKeysOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTagKeysOutput' :: ( { "PaginationToken" :: NullOrUndefined (PaginationToken) , "TagKeys" :: NullOrUndefined (TagKeyList) } -> {"PaginationToken" :: NullOrUndefined (PaginationToken) , "TagKeys" :: NullOrUndefined (TagKeyList) } ) -> GetTagKeysOutput
-newGetTagKeysOutput'  customize = (GetTagKeysOutput <<< customize) { "PaginationToken": (NullOrUndefined Nothing), "TagKeys": (NullOrUndefined Nothing) }
+newGetTagKeysOutput' :: ( { "PaginationToken" :: Maybe (PaginationToken) , "TagKeys" :: Maybe (TagKeyList) } -> {"PaginationToken" :: Maybe (PaginationToken) , "TagKeys" :: Maybe (TagKeyList) } ) -> GetTagKeysOutput
+newGetTagKeysOutput'  customize = (GetTagKeysOutput <<< customize) { "PaginationToken": Nothing, "TagKeys": Nothing }
 
 
 
 newtype GetTagValuesInput = GetTagValuesInput 
-  { "PaginationToken" :: NullOrUndefined (PaginationToken)
+  { "PaginationToken" :: Maybe (PaginationToken)
   , "Key" :: (TagKey)
   }
 derive instance newtypeGetTagValuesInput :: Newtype GetTagValuesInput _
@@ -184,18 +183,18 @@ instance encodeGetTagValuesInput :: Encode GetTagValuesInput where encode = gene
 
 -- | Constructs GetTagValuesInput from required parameters
 newGetTagValuesInput :: TagKey -> GetTagValuesInput
-newGetTagValuesInput _Key = GetTagValuesInput { "Key": _Key, "PaginationToken": (NullOrUndefined Nothing) }
+newGetTagValuesInput _Key = GetTagValuesInput { "Key": _Key, "PaginationToken": Nothing }
 
 -- | Constructs GetTagValuesInput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTagValuesInput' :: TagKey -> ( { "PaginationToken" :: NullOrUndefined (PaginationToken) , "Key" :: (TagKey) } -> {"PaginationToken" :: NullOrUndefined (PaginationToken) , "Key" :: (TagKey) } ) -> GetTagValuesInput
-newGetTagValuesInput' _Key customize = (GetTagValuesInput <<< customize) { "Key": _Key, "PaginationToken": (NullOrUndefined Nothing) }
+newGetTagValuesInput' :: TagKey -> ( { "PaginationToken" :: Maybe (PaginationToken) , "Key" :: (TagKey) } -> {"PaginationToken" :: Maybe (PaginationToken) , "Key" :: (TagKey) } ) -> GetTagValuesInput
+newGetTagValuesInput' _Key customize = (GetTagValuesInput <<< customize) { "Key": _Key, "PaginationToken": Nothing }
 
 
 
 newtype GetTagValuesOutput = GetTagValuesOutput 
-  { "PaginationToken" :: NullOrUndefined (PaginationToken)
-  , "TagValues" :: NullOrUndefined (TagValuesOutputList)
+  { "PaginationToken" :: Maybe (PaginationToken)
+  , "TagValues" :: Maybe (TagValuesOutputList)
   }
 derive instance newtypeGetTagValuesOutput :: Newtype GetTagValuesOutput _
 derive instance repGenericGetTagValuesOutput :: Generic GetTagValuesOutput _
@@ -205,18 +204,18 @@ instance encodeGetTagValuesOutput :: Encode GetTagValuesOutput where encode = ge
 
 -- | Constructs GetTagValuesOutput from required parameters
 newGetTagValuesOutput :: GetTagValuesOutput
-newGetTagValuesOutput  = GetTagValuesOutput { "PaginationToken": (NullOrUndefined Nothing), "TagValues": (NullOrUndefined Nothing) }
+newGetTagValuesOutput  = GetTagValuesOutput { "PaginationToken": Nothing, "TagValues": Nothing }
 
 -- | Constructs GetTagValuesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newGetTagValuesOutput' :: ( { "PaginationToken" :: NullOrUndefined (PaginationToken) , "TagValues" :: NullOrUndefined (TagValuesOutputList) } -> {"PaginationToken" :: NullOrUndefined (PaginationToken) , "TagValues" :: NullOrUndefined (TagValuesOutputList) } ) -> GetTagValuesOutput
-newGetTagValuesOutput'  customize = (GetTagValuesOutput <<< customize) { "PaginationToken": (NullOrUndefined Nothing), "TagValues": (NullOrUndefined Nothing) }
+newGetTagValuesOutput' :: ( { "PaginationToken" :: Maybe (PaginationToken) , "TagValues" :: Maybe (TagValuesOutputList) } -> {"PaginationToken" :: Maybe (PaginationToken) , "TagValues" :: Maybe (TagValuesOutputList) } ) -> GetTagValuesOutput
+newGetTagValuesOutput'  customize = (GetTagValuesOutput <<< customize) { "PaginationToken": Nothing, "TagValues": Nothing }
 
 
 
 -- | <p>The request processing failed because of an unknown error, exception, or failure. You can retry the request.</p>
 newtype InternalServiceException = InternalServiceException 
-  { "Message" :: NullOrUndefined (ExceptionMessage)
+  { "Message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeInternalServiceException :: Newtype InternalServiceException _
 derive instance repGenericInternalServiceException :: Generic InternalServiceException _
@@ -226,18 +225,18 @@ instance encodeInternalServiceException :: Encode InternalServiceException where
 
 -- | Constructs InternalServiceException from required parameters
 newInternalServiceException :: InternalServiceException
-newInternalServiceException  = InternalServiceException { "Message": (NullOrUndefined Nothing) }
+newInternalServiceException  = InternalServiceException { "Message": Nothing }
 
 -- | Constructs InternalServiceException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInternalServiceException' :: ( { "Message" :: NullOrUndefined (ExceptionMessage) } -> {"Message" :: NullOrUndefined (ExceptionMessage) } ) -> InternalServiceException
-newInternalServiceException'  customize = (InternalServiceException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInternalServiceException' :: ( { "Message" :: Maybe (ExceptionMessage) } -> {"Message" :: Maybe (ExceptionMessage) } ) -> InternalServiceException
+newInternalServiceException'  customize = (InternalServiceException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>A parameter is missing or a malformed string or invalid or out-of-range value was supplied for the request parameter.</p>
 newtype InvalidParameterException = InvalidParameterException 
-  { "Message" :: NullOrUndefined (ExceptionMessage)
+  { "Message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeInvalidParameterException :: Newtype InvalidParameterException _
 derive instance repGenericInvalidParameterException :: Generic InvalidParameterException _
@@ -247,12 +246,12 @@ instance encodeInvalidParameterException :: Encode InvalidParameterException whe
 
 -- | Constructs InvalidParameterException from required parameters
 newInvalidParameterException :: InvalidParameterException
-newInvalidParameterException  = InvalidParameterException { "Message": (NullOrUndefined Nothing) }
+newInvalidParameterException  = InvalidParameterException { "Message": Nothing }
 
 -- | Constructs InvalidParameterException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidParameterException' :: ( { "Message" :: NullOrUndefined (ExceptionMessage) } -> {"Message" :: NullOrUndefined (ExceptionMessage) } ) -> InvalidParameterException
-newInvalidParameterException'  customize = (InvalidParameterException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidParameterException' :: ( { "Message" :: Maybe (ExceptionMessage) } -> {"Message" :: Maybe (ExceptionMessage) } ) -> InvalidParameterException
+newInvalidParameterException'  customize = (InvalidParameterException <<< customize) { "Message": Nothing }
 
 
 
@@ -267,7 +266,7 @@ instance encodePaginationToken :: Encode PaginationToken where encode = genericE
 
 -- | <p>A <code>PaginationToken</code> is valid for a maximum of 15 minutes. Your request was denied because the specified <code>PaginationToken</code> has expired.</p>
 newtype PaginationTokenExpiredException = PaginationTokenExpiredException 
-  { "Message" :: NullOrUndefined (ExceptionMessage)
+  { "Message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypePaginationTokenExpiredException :: Newtype PaginationTokenExpiredException _
 derive instance repGenericPaginationTokenExpiredException :: Generic PaginationTokenExpiredException _
@@ -277,12 +276,12 @@ instance encodePaginationTokenExpiredException :: Encode PaginationTokenExpiredE
 
 -- | Constructs PaginationTokenExpiredException from required parameters
 newPaginationTokenExpiredException :: PaginationTokenExpiredException
-newPaginationTokenExpiredException  = PaginationTokenExpiredException { "Message": (NullOrUndefined Nothing) }
+newPaginationTokenExpiredException  = PaginationTokenExpiredException { "Message": Nothing }
 
 -- | Constructs PaginationTokenExpiredException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newPaginationTokenExpiredException' :: ( { "Message" :: NullOrUndefined (ExceptionMessage) } -> {"Message" :: NullOrUndefined (ExceptionMessage) } ) -> PaginationTokenExpiredException
-newPaginationTokenExpiredException'  customize = (PaginationTokenExpiredException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newPaginationTokenExpiredException' :: ( { "Message" :: Maybe (ExceptionMessage) } -> {"Message" :: Maybe (ExceptionMessage) } ) -> PaginationTokenExpiredException
+newPaginationTokenExpiredException'  customize = (PaginationTokenExpiredException <<< customize) { "Message": Nothing }
 
 
 
@@ -306,8 +305,8 @@ instance encodeResourceARNList :: Encode ResourceARNList where encode = genericE
 
 -- | <p>A list of resource ARNs and the tags (keys and values) that are associated with each.</p>
 newtype ResourceTagMapping = ResourceTagMapping 
-  { "ResourceARN" :: NullOrUndefined (ResourceARN)
-  , "Tags" :: NullOrUndefined (TagList)
+  { "ResourceARN" :: Maybe (ResourceARN)
+  , "Tags" :: Maybe (TagList)
   }
 derive instance newtypeResourceTagMapping :: Newtype ResourceTagMapping _
 derive instance repGenericResourceTagMapping :: Generic ResourceTagMapping _
@@ -317,12 +316,12 @@ instance encodeResourceTagMapping :: Encode ResourceTagMapping where encode = ge
 
 -- | Constructs ResourceTagMapping from required parameters
 newResourceTagMapping :: ResourceTagMapping
-newResourceTagMapping  = ResourceTagMapping { "ResourceARN": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newResourceTagMapping  = ResourceTagMapping { "ResourceARN": Nothing, "Tags": Nothing }
 
 -- | Constructs ResourceTagMapping's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceTagMapping' :: ( { "ResourceARN" :: NullOrUndefined (ResourceARN) , "Tags" :: NullOrUndefined (TagList) } -> {"ResourceARN" :: NullOrUndefined (ResourceARN) , "Tags" :: NullOrUndefined (TagList) } ) -> ResourceTagMapping
-newResourceTagMapping'  customize = (ResourceTagMapping <<< customize) { "ResourceARN": (NullOrUndefined Nothing), "Tags": (NullOrUndefined Nothing) }
+newResourceTagMapping' :: ( { "ResourceARN" :: Maybe (ResourceARN) , "Tags" :: Maybe (TagList) } -> {"ResourceARN" :: Maybe (ResourceARN) , "Tags" :: Maybe (TagList) } ) -> ResourceTagMapping
+newResourceTagMapping'  customize = (ResourceTagMapping <<< customize) { "ResourceARN": Nothing, "Tags": Nothing }
 
 
 
@@ -386,8 +385,8 @@ newTag' _Key _Value customize = (Tag <<< customize) { "Key": _Key, "Value": _Val
 
 -- | <p>A list of tags (keys and values) that are used to specify the associated resources.</p>
 newtype TagFilter = TagFilter 
-  { "Key" :: NullOrUndefined (TagKey)
-  , "Values" :: NullOrUndefined (TagValueList)
+  { "Key" :: Maybe (TagKey)
+  , "Values" :: Maybe (TagValueList)
   }
 derive instance newtypeTagFilter :: Newtype TagFilter _
 derive instance repGenericTagFilter :: Generic TagFilter _
@@ -397,12 +396,12 @@ instance encodeTagFilter :: Encode TagFilter where encode = genericEncode option
 
 -- | Constructs TagFilter from required parameters
 newTagFilter :: TagFilter
-newTagFilter  = TagFilter { "Key": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newTagFilter  = TagFilter { "Key": Nothing, "Values": Nothing }
 
 -- | Constructs TagFilter's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTagFilter' :: ( { "Key" :: NullOrUndefined (TagKey) , "Values" :: NullOrUndefined (TagValueList) } -> {"Key" :: NullOrUndefined (TagKey) , "Values" :: NullOrUndefined (TagValueList) } ) -> TagFilter
-newTagFilter'  customize = (TagFilter <<< customize) { "Key": (NullOrUndefined Nothing), "Values": (NullOrUndefined Nothing) }
+newTagFilter' :: ( { "Key" :: Maybe (TagKey) , "Values" :: Maybe (TagValueList) } -> {"Key" :: Maybe (TagKey) , "Values" :: Maybe (TagValueList) } ) -> TagFilter
+newTagFilter'  customize = (TagFilter <<< customize) { "Key": Nothing, "Values": Nothing }
 
 
 
@@ -482,7 +481,7 @@ newTagResourcesInput' _ResourceARNList _Tags customize = (TagResourcesInput <<< 
 
 
 newtype TagResourcesOutput = TagResourcesOutput 
-  { "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap)
+  { "FailedResourcesMap" :: Maybe (FailedResourcesMap)
   }
 derive instance newtypeTagResourcesOutput :: Newtype TagResourcesOutput _
 derive instance repGenericTagResourcesOutput :: Generic TagResourcesOutput _
@@ -492,12 +491,12 @@ instance encodeTagResourcesOutput :: Encode TagResourcesOutput where encode = ge
 
 -- | Constructs TagResourcesOutput from required parameters
 newTagResourcesOutput :: TagResourcesOutput
-newTagResourcesOutput  = TagResourcesOutput { "FailedResourcesMap": (NullOrUndefined Nothing) }
+newTagResourcesOutput  = TagResourcesOutput { "FailedResourcesMap": Nothing }
 
 -- | Constructs TagResourcesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newTagResourcesOutput' :: ( { "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) } -> {"FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) } ) -> TagResourcesOutput
-newTagResourcesOutput'  customize = (TagResourcesOutput <<< customize) { "FailedResourcesMap": (NullOrUndefined Nothing) }
+newTagResourcesOutput' :: ( { "FailedResourcesMap" :: Maybe (FailedResourcesMap) } -> {"FailedResourcesMap" :: Maybe (FailedResourcesMap) } ) -> TagResourcesOutput
+newTagResourcesOutput'  customize = (TagResourcesOutput <<< customize) { "FailedResourcesMap": Nothing }
 
 
 
@@ -539,7 +538,7 @@ instance encodeTagsPerPage :: Encode TagsPerPage where encode = genericEncode op
 
 -- | <p>The request was denied to limit the frequency of submitted requests.</p>
 newtype ThrottledException = ThrottledException 
-  { "Message" :: NullOrUndefined (ExceptionMessage)
+  { "Message" :: Maybe (ExceptionMessage)
   }
 derive instance newtypeThrottledException :: Newtype ThrottledException _
 derive instance repGenericThrottledException :: Generic ThrottledException _
@@ -549,12 +548,12 @@ instance encodeThrottledException :: Encode ThrottledException where encode = ge
 
 -- | Constructs ThrottledException from required parameters
 newThrottledException :: ThrottledException
-newThrottledException  = ThrottledException { "Message": (NullOrUndefined Nothing) }
+newThrottledException  = ThrottledException { "Message": Nothing }
 
 -- | Constructs ThrottledException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newThrottledException' :: ( { "Message" :: NullOrUndefined (ExceptionMessage) } -> {"Message" :: NullOrUndefined (ExceptionMessage) } ) -> ThrottledException
-newThrottledException'  customize = (ThrottledException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newThrottledException' :: ( { "Message" :: Maybe (ExceptionMessage) } -> {"Message" :: Maybe (ExceptionMessage) } ) -> ThrottledException
+newThrottledException'  customize = (ThrottledException <<< customize) { "Message": Nothing }
 
 
 
@@ -580,7 +579,7 @@ newUntagResourcesInput' _ResourceARNList _TagKeys customize = (UntagResourcesInp
 
 
 newtype UntagResourcesOutput = UntagResourcesOutput 
-  { "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap)
+  { "FailedResourcesMap" :: Maybe (FailedResourcesMap)
   }
 derive instance newtypeUntagResourcesOutput :: Newtype UntagResourcesOutput _
 derive instance repGenericUntagResourcesOutput :: Generic UntagResourcesOutput _
@@ -590,10 +589,10 @@ instance encodeUntagResourcesOutput :: Encode UntagResourcesOutput where encode 
 
 -- | Constructs UntagResourcesOutput from required parameters
 newUntagResourcesOutput :: UntagResourcesOutput
-newUntagResourcesOutput  = UntagResourcesOutput { "FailedResourcesMap": (NullOrUndefined Nothing) }
+newUntagResourcesOutput  = UntagResourcesOutput { "FailedResourcesMap": Nothing }
 
 -- | Constructs UntagResourcesOutput's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUntagResourcesOutput' :: ( { "FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) } -> {"FailedResourcesMap" :: NullOrUndefined (FailedResourcesMap) } ) -> UntagResourcesOutput
-newUntagResourcesOutput'  customize = (UntagResourcesOutput <<< customize) { "FailedResourcesMap": (NullOrUndefined Nothing) }
+newUntagResourcesOutput' :: ( { "FailedResourcesMap" :: Maybe (FailedResourcesMap) } -> {"FailedResourcesMap" :: Maybe (FailedResourcesMap) } ) -> UntagResourcesOutput
+newUntagResourcesOutput'  customize = (UntagResourcesOutput <<< customize) { "FailedResourcesMap": Nothing }
 
